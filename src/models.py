@@ -46,8 +46,7 @@ class Character(Base):
     homeworld = Column(String(250), ForeignKey('planet.id'))
 
     planet = relationship("Planet", back_populates="character")
-    favorite = relationship("Favorite", back_populates="character", single_parent=True)
-    __table_args__ = (UniqueConstraint("homeworld"),)
+    favorite = relationship("Favorite", back_populates="character")
 
 class Planet(Base):
     __tablename__ = 'planet'
